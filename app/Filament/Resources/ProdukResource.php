@@ -20,7 +20,10 @@ class ProdukResource extends Resource
 {
     protected static ?string $model = Produk::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Produk';
+    protected static ?string $label = 'Produk List';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -87,6 +90,7 @@ class ProdukResource extends Resource
                     ->numeric(decimalPlaces: 2),
                 TextColumn::make('getGudang.name')
                     ->label('Gudang')
+                    ->hiddenFrom('md')
                     ->searchable(),
                 TextColumn::make('rack'),
             ])
@@ -94,6 +98,7 @@ class ProdukResource extends Resource
             ->paginated([15, 30, 50, 100, 'all'])
             ->filters([
                 SelectFilter::make('warehouse_id')
+                    ->label('Gudang')
                     ->relationship('getGudang', 'name')
             ])
             ->actions([
@@ -127,5 +132,10 @@ class ProdukResource extends Resource
         return [
             'index' => Pages\ManageProduks::route('/'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }
