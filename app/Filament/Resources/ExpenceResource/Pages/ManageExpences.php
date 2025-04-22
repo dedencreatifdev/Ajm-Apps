@@ -1,16 +1,16 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Filament\Resources\ExpenceResource\Pages;
 
-use {{ resource }};
+use App\Filament\Resources\ExpenceResource;
 use Filament\Actions;
-use {{ baseResourcePage }};
+use Filament\Resources\Pages\ManageRecords;
 
 use Filament\Support\Enums\ActionSize;
 
-class {{ resourcePageClass }} extends {{ baseResourcePageClass }}
+class ManageExpences extends ManageRecords
 {
-    protected static string $resource = {{ resourceClass }}::class;
+    protected static string $resource = ExpenceResource::class;
 
     protected function getHeaderActions(): array
     {

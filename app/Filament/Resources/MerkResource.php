@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\KategoriResource\Pages;
-use App\Filament\Resources\KategoriResource\RelationManagers;
-use App\Models\Kategori;
+use App\Filament\Resources\MerkResource\Pages;
+use App\Filament\Resources\MerkResource\RelationManagers;
+use App\Models\Merk;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,30 +13,28 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class KategoriResource extends Resource
+class MerkResource extends Resource
 {
-    protected static ?string $model = Kategori::class;
+    protected static ?string $model = Merk::class;
 
     // protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
     protected static ?string $navigationGroup = 'Produk';
-    protected static ?string $label = 'Kategori';
-    protected static ?int $navigationSort = 3;
+    protected static ?string $label = 'Brand';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('code')
-                    ->required()
-                    ->maxLength(55),
+                    ->maxLength(20)
+                    ->default(null),
                 Forms\Components\TextInput::make('name')
                     ->required()
-                    ->maxLength(55),
+                    ->maxLength(50),
                 Forms\Components\FileUpload::make('image')
                     ->image(),
-                Forms\Components\TextInput::make('parent_id')
-                    ->numeric()
-                    ->default(null),
             ]);
     }
 
@@ -45,16 +43,22 @@ class KategoriResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('code')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
             ])
+            ->striped()
+            ->defaultSort('code', 'asc')
+            ->paginated([15, 30, 50, 100, 'all'])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -66,7 +70,7 @@ class KategoriResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageKategoris::route('/'),
+            'index' => Pages\ManageMerks::route('/'),
         ];
     }
 }

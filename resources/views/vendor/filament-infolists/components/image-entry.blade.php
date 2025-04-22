@@ -20,7 +20,7 @@
         $isStacked = $isStacked();
         $overlap = $isStacked ? ($getOverlap() ?? 2) : null;
         $ring = $isStacked ? ($getRing() ?? 2) : null;
-        $height = $getHeight() ?? ($isStacked ? '2.5rem' : '8rem');
+        $height = $getHeight() ?? ($isStacked ? '1.5rem' : '8rem');
         $width = $getWidth() ?? (($isCircular || $isSquare) ? $height : null);
 
         $stateCount = count($state);

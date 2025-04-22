@@ -1,16 +1,16 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Filament\Resources\GudangResource\Pages;
 
-use {{ resource }};
+use App\Filament\Resources\GudangResource;
 use Filament\Actions;
-use {{ baseResourcePage }};
+use Filament\Resources\Pages\ManageRecords;
 
 use Filament\Support\Enums\ActionSize;
 
-class {{ resourcePageClass }} extends {{ baseResourcePageClass }}
+class ManageGudangs extends ManageRecords
 {
-    protected static string $resource = {{ resourceClass }}::class;
+    protected static string $resource = GudangResource::class;
 
     protected function getHeaderActions(): array
     {

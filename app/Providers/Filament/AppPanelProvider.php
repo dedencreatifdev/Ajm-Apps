@@ -69,10 +69,10 @@ class AppPanelProvider extends PanelProvider
                      ->label('Produk')
                      ->icon('heroicon-o-squares-plus'),
                 NavigationGroup::make()
-                    ->label('Blog')
-                    ->icon('heroicon-o-pencil'),
+                    ->label('Transaksi')
+                    ->icon('heroicon-o-shopping-bag'),
                 NavigationGroup::make()
-                    ->label(fn (): string => __('navigation.settings'))
+                    ->label('Setting')
                     ->icon('heroicon-o-cog-6-tooth')
                     ->collapsed(),
             ])

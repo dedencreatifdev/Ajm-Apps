@@ -1,16 +1,16 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Filament\Resources\MerkResource\Pages;
 
-use {{ resource }};
+use App\Filament\Resources\MerkResource;
 use Filament\Actions;
-use {{ baseResourcePage }};
+use Filament\Resources\Pages\ManageRecords;
 
 use Filament\Support\Enums\ActionSize;
 
-class {{ resourcePageClass }} extends {{ baseResourcePageClass }}
+class ManageMerks extends ManageRecords
 {
-    protected static string $resource = {{ resourceClass }}::class;
+    protected static string $resource = MerkResource::class;
 
     protected function getHeaderActions(): array
     {

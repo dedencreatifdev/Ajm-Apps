@@ -1,16 +1,16 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Filament\Resources\PembayaranResource\Pages;
 
-use {{ resource }};
+use App\Filament\Resources\PembayaranResource;
 use Filament\Actions;
-use {{ baseResourcePage }};
+use Filament\Resources\Pages\ManageRecords;
 
 use Filament\Support\Enums\ActionSize;
 
-class {{ resourcePageClass }} extends {{ baseResourcePageClass }}
+class ManagePembayarans extends ManageRecords
 {
-    protected static string $resource = {{ resourceClass }}::class;
+    protected static string $resource = PembayaranResource::class;
 
     protected function getHeaderActions(): array
     {

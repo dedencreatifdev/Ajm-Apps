@@ -1,16 +1,16 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Filament\Resources\SatuanResource\Pages;
 
-use {{ resource }};
+use App\Filament\Resources\SatuanResource;
 use Filament\Actions;
-use {{ baseResourcePage }};
+use Filament\Resources\Pages\ManageRecords;
 
 use Filament\Support\Enums\ActionSize;
 
-class {{ resourcePageClass }} extends {{ baseResourcePageClass }}
+class ManageSatuans extends ManageRecords
 {
-    protected static string $resource = {{ resourceClass }}::class;
+    protected static string $resource = SatuanResource::class;
 
     protected function getHeaderActions(): array
     {

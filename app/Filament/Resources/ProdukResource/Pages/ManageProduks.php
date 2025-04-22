@@ -15,7 +15,8 @@ class ManageProduks extends ManageRecords
     {
         return [
             Actions\CreateAction::make()
-            ->size(ActionSize::ExtraSmall),
+                ->size(ActionSize::ExtraSmall)
+                ->icon('heroicon-o-squares-plus'),
         ];
     }
 }

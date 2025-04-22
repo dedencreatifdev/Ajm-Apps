@@ -17,7 +17,11 @@ class {{ resourceClass }} extends Resource
 {
     protected static ?string $model = {{ modelClass }}::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';{{ clusterAssignment }}
+    // protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';{{ clusterAssignment }}
+
+    protected static ?string $navigationGroup = 'Setting';
+    protected static ?string $label = '{{ modelClass }}';
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {
@@ -33,11 +37,15 @@ class {{ resourceClass }} extends Resource
             ->columns([
 {{ tableColumns }}
             ])
+            ->striped()
+            ->paginated([15, 30, 50, 100, 'all'])
             ->filters([
 {{ tableFilters }}
             ])
             ->actions([
-{{ tableActions }}
+                Tables\Actions\ActionGroup::make([
+    {{ tableActions }}
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

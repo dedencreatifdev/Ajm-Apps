@@ -53,6 +53,7 @@ class ProdukResource extends Resource
             ->columns([
                 TextColumn::make('getProdukDetail.code')
                     ->label('Kode Produk')
+                    ->sortable()
                     ->searchable(),
                 TextColumn::make('getProdukDetail.name')
                     ->label('Nama Produk')
@@ -95,6 +96,7 @@ class ProdukResource extends Resource
                 TextColumn::make('rack'),
             ])
             ->striped()
+            ->defaultSort('getProdukDetail.code', 'asc')
             ->paginated([15, 30, 50, 100, 'all'])
             ->filters([
                 SelectFilter::make('warehouse_id')
