@@ -118,12 +118,12 @@ class ProdukResource extends Resource
                         ->modalAlignment('center')
                         ->modalIcon('heroicon-o-pencil')
                         ->modalWidth('3xl'),
-                    // Tables\Actions\DeleteAction::make(),
+                    Tables\Actions\DeleteAction::make(),
                 ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    // Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make(),
                     Tables\Actions\Action::make('cetak_label'),
                 ]),
             ]);
