@@ -2,9 +2,10 @@
 
 namespace App\Filament\Resources\PenjualanResource\Pages;
 
-use App\Filament\Resources\PenjualanResource;
 use Filament\Actions;
+use Filament\Support\Enums\ActionSize;
 use Filament\Resources\Pages\ListRecords;
+use App\Filament\Resources\PenjualanResource;
 
 class ListPenjualans extends ListRecords
 {
@@ -13,7 +14,9 @@ class ListPenjualans extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+            ->size(ActionSize::ExtraSmall)
+                ->icon('heroicon-o-squares-plus'),
         ];
     }
 }

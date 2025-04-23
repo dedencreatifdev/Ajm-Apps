@@ -8,8 +8,11 @@ use Filament\Forms\Form;
 use App\Models\Penjualan;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Enums\FiltersLayout;
+use Filament\Forms\Components\DatePicker;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\PenjualanResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -144,6 +147,7 @@ class PenjualanResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->description('Daftar Penjualan urutan dari tanggal terbaru')
             ->columns([
                 TextColumn::make('date')
                     ->dateTime('d M Y H:i')
@@ -255,8 +259,30 @@ class PenjualanResource extends Resource
             ->paginated([15, 30, 50, 100, 'all'])
             ->defaultSort('date', 'desc')
             ->filters([
-                //
-            ])
+                Filter::make('date')
+                ->label('Tanggal')
+                    ->form([
+                        DatePicker::make('dari')
+                            ->label('Dari Tanggal')
+                            ->placeholder('Dari Tanggal')
+                            ->required(),
+                        DatePicker::make('sampai')
+                            ->label('Sampai Tanggal')
+                            ->placeholder('Sampai Tanggal')
+                            ->required(),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['dari'],
+                                fn(Builder $query, $date): Builder => $query->whereDate('date', '>=', $date),
+                            )
+                            ->when(
+                                $data['sampai'],
+                                fn(Builder $query, $date): Builder => $query->whereDate('date', '<=', $date),
+                            );
+                    })
+            ], layout: FiltersLayout::Modal)
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
