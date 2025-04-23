@@ -146,7 +146,7 @@ class PenjualanResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('date')
-                    ->dateTime()
+                ->dateTime('d M Y H:i')
                     ->sortable(),
                 TextColumn::make('reference_no')
                     ->searchable(),

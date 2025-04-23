@@ -124,11 +124,11 @@ class PembelianResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('reference_no')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('date')
                     ->dateTime('d M Y H:i')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('reference_no')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('supplier')
                     ->searchable(),
                 // Tables\Columns\TextColumn::make('warehouse_id')

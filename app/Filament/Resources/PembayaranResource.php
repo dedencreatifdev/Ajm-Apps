@@ -99,7 +99,7 @@ class PembayaranResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('date')
-                    ->dateTime()
+                    ->dateTime('d M Y H:i')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sale_id')
                     ->sortable(),
@@ -112,7 +112,7 @@ class PembayaranResource extends Resource
                 Tables\Columns\TextColumn::make('transaction_id')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('paid_by')
-                ->words()
+                    ->words()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('cheque_no')
                     ->searchable(),
@@ -157,8 +157,8 @@ class PembayaranResource extends Resource
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
                 ]),
             ])
             ->bulkActions([
