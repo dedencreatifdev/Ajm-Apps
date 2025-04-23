@@ -27,6 +27,7 @@ class KategoriResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('code')
+                    ->disabledOn('edit')
                     ->required()
                     ->maxLength(55),
                 Forms\Components\TextInput::make('name')

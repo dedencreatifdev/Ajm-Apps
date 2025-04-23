@@ -65,6 +65,9 @@
                 --collapsed-sidebar-width: {{ filament()->getCollapsedSidebarWidth() }};
                 --default-theme-mode: {{ filament()->getDefaultThemeMode()->value }};
             }
+            *{
+                font-size: 14px;
+            }
         </style>
 
         @stack('styles')
