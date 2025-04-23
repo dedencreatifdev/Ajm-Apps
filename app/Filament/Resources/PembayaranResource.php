@@ -101,52 +101,55 @@ class PembayaranResource extends Resource
                 Tables\Columns\TextColumn::make('date')
                     ->dateTime('d M Y H:i')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('sale_id')
+                Tables\Columns\TextColumn::make('getPenjualan.reference_no')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('return_id')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('purchase_id')
+                Tables\Columns\TextColumn::make('getPembelian.reference_no')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('reference_no')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('transaction_id')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('transaction_id')
+                //     ->searchable(),
                 Tables\Columns\TextColumn::make('paid_by')
                     ->words()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('cheque_no')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('cc_no')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('cc_holder')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('cc_month')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('cc_year')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('cc_type')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('cheque_no')
+                //     ->searchable(),
+                // Tables\Columns\TextColumn::make('cc_no')
+                //     ->searchable(),
+                // Tables\Columns\TextColumn::make('cc_holder')
+                //     ->searchable(),
+                // Tables\Columns\TextColumn::make('cc_month')
+                //     ->searchable(),
+                // Tables\Columns\TextColumn::make('cc_year')
+                //     ->searchable(),
+                // Tables\Columns\TextColumn::make('cc_type')
+                // ->searchable(),
                 Tables\Columns\TextColumn::make('amount')
+                    ->alignEnd()
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('currency')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_by')
+                // Tables\Columns\TextColumn::make('currency')
+                //     ->searchable(),
+                Tables\Columns\TextColumn::make('getUserPembuat.name')
+                    ->label('Dibuat Oleh')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('attachment')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('type')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('note')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('attachment')
+                //     ->searchable(),
+                // Tables\Columns\TextColumn::make('type')
+                //     ->searchable(),
+                // Tables\Columns\TextColumn::make('note')
+                //     ->searchable(),
                 Tables\Columns\TextColumn::make('pos_paid')
+                    ->alignEnd()
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('pos_balance')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('approval_code')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('pos_balance')
+                //     ->numeric()
+                //     ->sortable(),
+                // Tables\Columns\TextColumn::make('approval_code')
+                //     ->searchable(),
             ])
             ->striped()
             ->paginated([15, 30, 50, 100, 'all'])

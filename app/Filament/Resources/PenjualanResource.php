@@ -146,7 +146,7 @@ class PenjualanResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('date')
-                ->dateTime('d M Y H:i')
+                    ->dateTime('d M Y H:i')
                     ->sortable(),
                 TextColumn::make('reference_no')
                     ->searchable(),
@@ -200,14 +200,14 @@ class PenjualanResource extends Resource
                     ->alignEnd()
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('paid')
-                    ->alignEnd()
-                    ->numeric()
-                    ->sortable(),
                 TextColumn::make('sale_status')
                     ->searchable(),
                 TextColumn::make('payment_status')
                     ->searchable(),
+                TextColumn::make('paid')
+                    ->alignEnd()
+                    ->numeric()
+                    ->sortable(),
                 // TextColumn::make('payment_term')
                 //     ->numeric()
                 //     ->sortable(),

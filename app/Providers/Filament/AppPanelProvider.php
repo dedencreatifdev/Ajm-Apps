@@ -63,6 +63,8 @@ class AppPanelProvider extends PanelProvider
             ->font('Nunito')
             ->maxContentWidth('full')
             ->sidebarWidth('17rem')
+            ->topNavigation(true)
+            ->spa()
 
             ->navigationGroups([
                 NavigationGroup::make()

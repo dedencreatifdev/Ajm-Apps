@@ -168,14 +168,14 @@ class PembelianResource extends Resource
                     ->numeric()
                     ->alignEnd()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('paid')
-                    ->numeric()
-                    ->alignEnd()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('status')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('payment_status')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('paid')
+                    ->numeric()
+                    ->alignEnd()
+                    ->sortable(),
             ])
             ->striped()
             ->paginated([15, 30, 50, 100, 'all'])
@@ -186,7 +186,7 @@ class PembelianResource extends Resource
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                    Tables\Actions\EditAction::make(),
                 ]),
             ])
             ->bulkActions([
