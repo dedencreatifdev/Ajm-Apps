@@ -23,7 +23,7 @@
     'labelSrOnly' => false,
     'loadingIndicator' => true,
     'outlined' => false,
-    'size' => ActionSize::Medium,
+    'size' => ActionSize::ExtraSmall,
     'spaMode' => null,
     'tag' => 'button',
     'target' => null,
@@ -128,7 +128,7 @@
     $badgeContainerClasses = 'fi-btn-badge-ctn absolute start-full top-0 z-[1] w-max -translate-x-1/2 -translate-y-1/2 rounded-md bg-white dark:bg-gray-900 rtl:translate-x-1/2';
 
     $labelClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-btn-label',
+        'fi-btn-label text-sm',
         'sr-only' => $labelSrOnly,
     ]);
 

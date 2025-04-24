@@ -70,7 +70,7 @@
     $imageClasses = 'fi-dropdown-list-item-image h-5 w-5 rounded-full bg-cover bg-center';
 
     $labelClasses = \Illuminate\Support\Arr::toCssClasses([
-        'fi-dropdown-list-item-label flex-1 truncate text-start',
+        'fi-dropdown-list-item-label text-sm flex-1 truncate text-start',
         match ($color) {
             'gray' => 'text-gray-700 dark:text-gray-200',
             default => 'text-custom-600 dark:text-custom-400 ',

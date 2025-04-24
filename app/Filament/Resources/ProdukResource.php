@@ -9,12 +9,15 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
+use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\ProdukResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ProdukResource\RelationManagers;
+
+use function Termwind\style;
 
 class ProdukResource extends Resource
 {
@@ -95,6 +98,8 @@ class ProdukResource extends Resource
                     ->searchable(),
                 TextColumn::make('rack'),
             ])
+            ->recordClasses([])
+
             ->striped()
             ->defaultSort('getProdukDetail.code', 'asc')
             ->paginated([15, 30, 50, 100, 'all'])
